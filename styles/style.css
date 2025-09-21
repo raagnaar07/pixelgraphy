@@ -1,32 +1,66 @@
-/* styles/style.css */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: #eee;
   margin: 0;
-  padding: 0;
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-header {
-  text-align: center;
-  padding: 2rem;
-  background-color: #222;
-}
-
-#gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 2rem;
-}
-
-img {
+.floating-gallery {
+  position: fixed;
   width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  height: 100%;
+  z-index: 1;
 }
 
-p {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+.floating {
+  position: absolute;
+  width: 120px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  animation: floatAround 30s infinite linear;
+  cursor: pointer;
+}
+
+@keyframes floatAround {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(80vw, 20vh); }
+  50% { transform: translate(40vw, 80vh); }
+  75% { transform: translate(10vw, 40vh); }
+  100% { transform: translate(0, 0); }
+}
+
+#photo-viewer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#photo-viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
 }
