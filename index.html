@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.5"/>
+  <meta name="viewport" content="width=device-width, initial-scale=0.25"/>
   <title>Photo Collage</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -36,18 +36,19 @@
     });
 
     closeBtn.addEventListener('click', () => {
-      lightbox.style.display = 'photo collage';
+      lightbox.style.display = 'none';
     });
 
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
-        lightbox.style.display = 'photo collage';
+        lightbox.style.display = 'none';
       }
     });
   </script>
 
 </body>
 </html>
+
 
 
 
