@@ -1,66 +1,55 @@
-body {
-  margin: 0;
-  background: url('images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
+/* Collage Layout: 3 images per row */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 20px;
+  background-color: #f5f5f5;
 }
 
-.floating-gallery {
-  position: fixed;
+/* Image Styling: natural proportions */
+.collage-img {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.floating {
-  position: absolute;
-  width: 120px;
-  border-radius: 12px;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  animation: floatAround 30s infinite linear;
+  height: auto;
   cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
-@keyframes floatAround {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(80vw, 20vh); }
-  50% { transform: translate(40vw, 80vh); }
-  75% { transform: translate(10vw, 40vh); }
-  100% { transform: translate(0, 0); }
+.collage-img:hover {
+  transform: scale(1.03);
 }
 
-#photo-viewer {
+/* Lightbox Overlay */
+.lightbox {
+  display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  display: flex;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  flex-direction: column;
 }
 
-#photo-viewer img {
+/* Lightbox Image */
+.lightbox-content {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  border-radius: 10px;
 }
 
-.hidden {
-  display: none;
-}
-
-.close-btn {
+/* Close Button */
+.close {
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 32px;
+  font-size: 36px;
   color: white;
   cursor: pointer;
+  font-family: sans-serif;
 }
