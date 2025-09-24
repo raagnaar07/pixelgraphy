@@ -53,3 +53,17 @@
   cursor: pointer;
   font-family: sans-serif;
 }
+
+/* Responsive: 2 images per row on tablets */
+@media (max-width: 768px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive: 1 image per row on mobile */
+@media (max-width: 480px) {
+  .collage {
+    grid-template-columns: 1fr;
+  }
+}
