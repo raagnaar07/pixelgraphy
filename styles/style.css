@@ -9,7 +9,7 @@
 
 /* Image Styling: natural proportions */
 .collage-img {
-  width: 100%;
+  width: auto;
   height: auto;
   cursor: pointer;
   border-radius: 6px;
@@ -67,3 +67,4 @@
     grid-template-columns: 1fr;
   }
 }
+
