@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pixelgraphy</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Collage</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Welcome to Pixelgraphy</h1>
-  </header>
-  <main id="gallery">
-    <!-- Images will be loaded here -->
-  </main>
-  <script src="scripts/gallery.js"></script>
+
+  <div class="collage">
+    <img src="images/DSC05837.jpg" class="collage-img" />
+    <img src="images/DSC05838.jpg" class="collage-img" />
+    <img src="images/DSC05840.jpg" class="collage-img" />
+    <img src="images/DSC05936.jpg" class="collage-img" />
+    <img src="images/DSC09107.jpg" class="collage-img" />
+    <img src="images/DSC09544.jpg" class="collage-img" />
+    <img src="images/DSC09866.jpg" class="collage-img" />
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close');
+
+    document.querySelectorAll('.collage-img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+
 </body>
 </html>
